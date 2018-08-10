@@ -1,0 +1,39 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### maven-release-plugin
+release.properties
+pom.xml.releaseBackup
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+logs/
+.DS_store
+
+### apidoc ###
+src/main/resources/static/apidoc
+
+doc/
+out/
+src/main/resources/config/application-local.yml
+commit_template
