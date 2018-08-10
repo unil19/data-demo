@@ -5,10 +5,10 @@ package com.unil.element;
  * @date 2018/8/6 20:08
  * @desc
  */
-public class Array {
+public class Array<T> {
 
     private int size;
-    private int[] data;
+    private T[] data;
 
     /**
      * 初始化容量的构造函数
@@ -16,7 +16,7 @@ public class Array {
      * @param capacity
      */
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (T[]) new Object[capacity];
         size = 0;
     }
 
@@ -36,61 +36,61 @@ public class Array {
         return size == 0;
     }
 
-    public int get(int index) {
+    public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("数组下标方法");
         }
         return data[index];
     }
 
-    public void set(int index, int value) {
+    public void set(int index, T value) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("数组下标方法");
         }
         data[index] = value;
     }
 
-    public boolean contains(int value) {
+    public boolean contains(T value) {
         for (int i = 0; i < size; i++) {
-            if (value == data[i]) {
+            if (value.equals(data[i])) {
                 return true;
             }
         }
         return false;
     }
 
-    public int indexOf(int value) {
+    public int indexOf(T value) {
         for (int i = 0; i < size; i++) {
-            if (value == data[i]) {
+            if (value.equals(data[i])) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int remove(int index) {
+    public T remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("数组下标方法");
         }
-        int oldData = data[index];
+        T oldData = data[index];
         for (int i = index; i < size - 1; i++) {
             data[i] = data[i + 1];
         }
         ;
-        data[size - 1] = 0;
+        data[size - 1] = null;
         size--;
         return oldData;
     }
 
-    public int removeFirst() {
+    public T removeFirst() {
         return remove(0);
     }
 
-    public int removeLast() {
+    public T removeLast() {
         return remove(size - 1);
     }
 
-    public boolean removeElement(int value) {
+    public boolean removeElement(T value) {
         int index = indexOf(value);
         if (-1 != index) {
             remove(index);
@@ -99,15 +99,15 @@ public class Array {
         return false;
     }
 
-    public void addLast(int ele) {
+    public void addLast(T ele) {
         add(size, ele);
     }
 
-    public void addFirst(int ele) {
+    public void addFirst(T ele) {
         add(0, ele);
     }
 
-    public void add(int index, int ele){
+    public void add(int index, T ele) {
         if (size >= data.length) {
             throw new IllegalArgumentException("数组已满，不能继续添加");
         }
