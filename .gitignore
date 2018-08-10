@@ -16,7 +16,6 @@ pom.xml.releaseBackup
 ### IntelliJ IDEA ###
 .idea
 *.iws
-*.iml
 *.ipr
 
 ### NetBeans ###
