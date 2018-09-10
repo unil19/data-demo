@@ -8,7 +8,7 @@ package com.unil.runner;
 public class RandomRunner implements Runnable{
     @Override
     public void run() {
-        synString2("liuwenhui");
+        synString2(new String("liuwh"));
     }
 
     public static void synString(String userId) {
@@ -19,7 +19,7 @@ public class RandomRunner implements Runnable{
     }
     public static void synString2(Object userId) {
 
-        synchronized (userId){
+        synchronized (userId.toString().intern()){
             System.out.println("线程2");
         }
     }

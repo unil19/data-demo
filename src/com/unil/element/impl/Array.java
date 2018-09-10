@@ -1,4 +1,4 @@
-package com.unil.element;
+package com.unil.element.impl;
 
 /**
  * @author liuwh33
@@ -43,6 +43,14 @@ public class Array<T> {
         return data[index];
     }
 
+    public T getLast(){
+        return get(size - 1);
+    }
+
+    public T getFirst(){
+        return get(0);
+    }
+
     public void set(int index, T value) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("数组下标方法");
@@ -79,6 +87,9 @@ public class Array<T> {
         ;
         data[size - 1] = null;
         size--;
+        if(size <= data.length/4 && data.length/2!=0){
+            resize(data.length/2);
+        }
         return oldData;
     }
 
@@ -109,7 +120,7 @@ public class Array<T> {
 
     public void add(int index, T ele) {
         if (size >= data.length) {
-            throw new IllegalArgumentException("数组已满，不能继续添加");
+            resize(2*data.length);
         }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index不合法，不能添加");
@@ -119,6 +130,14 @@ public class Array<T> {
         }
         data[index] = ele;
         size++;
+    }
+
+    private void resize(int length){
+        T[] newData = (T[]) new Object[length];
+        for(int i=0; i<size;i++){
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     @Override

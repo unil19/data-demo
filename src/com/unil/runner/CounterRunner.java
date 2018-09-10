@@ -13,7 +13,7 @@ public class CounterRunner implements Runnable{
     @Override
     public void run() {
         try {
-            synString("liuwenhui");
+            synString2(new String("liuwh"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,7 +33,7 @@ public class CounterRunner implements Runnable{
     }
 
     public static void synString2(Object object) throws InterruptedException {
-        synchronized (object){
+        synchronized (object.toString().intern()){
             System.out.println("线程1");
             Thread.sleep(5000);
         }
