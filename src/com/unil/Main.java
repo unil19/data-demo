@@ -2,8 +2,10 @@ package com.unil;
 
 import com.unil.app.BracketCheck;
 import com.unil.app.Student;
+import com.unil.element.Queue;
 import com.unil.element.Stack;
 import com.unil.element.impl.Array;
+import com.unil.element.impl.ArrayQueue;
 import com.unil.element.impl.ArrayStack;
 
 public class Main {
@@ -48,8 +50,13 @@ public class Main {
         //栈的应用：括号检查
         String trueStr = "[sdsda{(sdsaxc)fgfg}cvxcvcx你好]";
         String falseStr = "[hello{world]你好}世界(程序员)";
-//        System.out.println(BracketCheck.check(trueStr));
-//        System.out.println(BracketCheck.check(falseStr));
+        System.out.println(BracketCheck.check(trueStr));
+        System.out.println(BracketCheck.check(falseStr));
+
+        Queue<Student> queue = new ArrayQueue<>();
+        queue.enqueue(student1);
+        queue.enqueue(student2);
+        System.out.println(queue.getFront() );
 
     }
 }

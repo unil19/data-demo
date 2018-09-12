@@ -5,5 +5,16 @@ package com.unil.element;
  * @date 2018/9/10 20:25
  * @desc
  */
-public interface Queue {
+public interface Queue<E> {
+
+    void enqueue(E e);
+
+    E dequeue();
+
+    E getFront();
+
+    int getSize();
+
+    boolean isEmpty();
+
 }
