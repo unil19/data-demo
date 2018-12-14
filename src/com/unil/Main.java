@@ -60,15 +60,30 @@ public class Main {
         Queue<Student> loopQueue = new LoopQueue<>();
         loopQueue.enqueue(student1);
         loopQueue.enqueue(student2);
-//        System.out.print(loopQueue.getFront());
-//        double time1 = testQueue(new ArrayQueue<>(), 100000);
-//        double time2 = testQueue(new LoopQueue<>(), 100000);
-//        System.out.println("数组队列用时" + time1 + "ms");
-//        System.out.print("循环队列用时" + time2 + "ms");
-        LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.addFirst(1);
-        linkedList.addFirst(2);
-        System.out.print(linkedList.toString());
+        Queue<Student> linkedQueue = new LinkedListQueue<>();
+        linkedQueue.enqueue(student1);
+        linkedQueue.enqueue(student2);
+        double time1 = testQueue(new ArrayQueue<>(), 100000);
+        double time2 = testQueue(new LoopQueue<>(), 100000);
+        double time3 = testQueue(new LinkedListQueue<>(), 100000);
+        System.out.println("数组队列用时" + time1 + "ms\n");
+        System.out.print("循环队列用时" + time2 + "ms\n");
+        System.out.print("链表队列用时" + time3 + "ms\n");
+//        LinkedList<Integer> linkedList = new LinkedList<>();
+//        linkedList.addFirst(1);
+//        linkedList.addFirst(2);
+//        linkedList.add(2,8);
+//        linkedList.set(1, 66);
+//        linkedList.remove(1);
+//        System.out.print(linkedList.toString());
+//        LinkedListStack<Integer> stack = new LinkedListStack<>();
+//        stack.push(1);
+//        stack.push(2);
+//        System.out.print(stack.pop());
+//        double time3 = testStack(new ArrayStack<>(), 100000);
+//        double time4 = testStack(new LinkedListStack<>(), 100000);
+//        System.out.println("数组栈用时" + time3 + "ms");
+//        System.out.print("链表栈用时" + time4 + "ms");
 
     }
 
@@ -79,6 +94,18 @@ public class Main {
         }
         for (int i = 0; i < count; i++) {
             queue.dequeue();
+        }
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000;
+    }
+
+    public static double testStack(Stack<Integer> stack, int count) {
+        long startTime = System.nanoTime();
+        for (int i = 0; i < count; i++) {
+            stack.push(i);
+        }
+        for (int i = 0; i < count; i++) {
+            stack.pop();
         }
         long endTime = System.nanoTime();
         return (endTime - startTime) / 1000000;
