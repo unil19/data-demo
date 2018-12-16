@@ -28,4 +28,22 @@ public class BST<E extends Comparable>{
     public boolean isEmpty(){
         return size == 0;
     }
+
+    //添加到叶节点
+    public void add(E e){
+        root = add(root, e);
+    }
+
+    private Node add(Node node, E e) {
+        if(node == null) {
+            size ++;
+            return new Node(e);
+        }
+        if(e.compareTo(node.e)<0){
+            node.left = add(node.left, e);
+        } else if(e.compareTo(node.e) > 0) {
+            node.right = add(node.right, e);
+        }
+        return node;
+    }
 }
