@@ -63,12 +63,12 @@ public class Main {
         Queue<Student> linkedQueue = new LinkedListQueue<>();
         linkedQueue.enqueue(student1);
         linkedQueue.enqueue(student2);
-        double time1 = testQueue(new ArrayQueue<>(), 100000);
-        double time2 = testQueue(new LoopQueue<>(), 100000);
-        double time3 = testQueue(new LinkedListQueue<>(), 100000);
-        System.out.println("数组队列用时" + time1 + "ms\n");
-        System.out.print("循环队列用时" + time2 + "ms\n");
-        System.out.print("链表队列用时" + time3 + "ms\n");
+//        double time1 = testQueue(new ArrayQueue<>(), 100000);
+//        double time2 = testQueue(new LoopQueue<>(), 100000);
+//        double time3 = testQueue(new LinkedListQueue<>(), 100000);
+//        System.out.println("数组队列用时" + time1 + "ms\n");
+//        System.out.print("循环队列用时" + time2 + "ms\n");
+//        System.out.print("链表队列用时" + time3 + "ms\n");
 //        LinkedList<Integer> linkedList = new LinkedList<>();
 //        linkedList.addFirst(1);
 //        linkedList.addFirst(2);
@@ -84,6 +84,16 @@ public class Main {
 //        double time4 = testStack(new LinkedListStack<>(), 100000);
 //        System.out.println("数组栈用时" + time3 + "ms");
 //        System.out.print("链表栈用时" + time4 + "ms");
+        BST<Integer> bst = new BST<>();
+        bst.add(10);
+        bst.add(8);
+        bst.add(9);
+        bst.add(7);
+        bst.add(12);
+        int e = 11;
+        boolean isContain = bst.contains(e);
+        System.out.print("二分搜索树中"+ (isContain?"":"不")+"包含"+e);
+        bst.preOrder();
 
     }
 
