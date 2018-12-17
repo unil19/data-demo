@@ -85,15 +85,27 @@ public class Main {
 //        System.out.println("数组栈用时" + time3 + "ms");
 //        System.out.print("链表栈用时" + time4 + "ms");
         BST<Integer> bst = new BST<>();
-        bst.add(10);
-        bst.add(8);
-        bst.add(9);
-        bst.add(7);
-        bst.add(12);
+        int[] data = {5,3,6,8,4,2};
+        for(int i = 0;i<data.length;i++){
+            bst.add(data[i]);
+        }
         int e = 11;
         boolean isContain = bst.contains(e);
         System.out.print("二分搜索树中"+ (isContain?"":"不")+"包含"+e);
-        bst.preOrder();
+//        bst.preOrder();
+//        System.out.print("\n");
+//        bst.inOrder();
+//        System.out.print("\n");
+//        bst.postOrder();
+//        System.out.print("\n");
+//        bst.levelOrder();
+        System.out.print("\n");
+//        System.out.print(bst.toString());
+//        System.out.print(bst.maximum());
+//        bst.removeMin();
+//        bst.removeMax();
+        bst.remove(8);
+        System.out.print(bst.toString());
 
     }
 
