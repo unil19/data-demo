@@ -3,8 +3,11 @@ package com.unil;
 import com.unil.app.BracketCheck;
 import com.unil.app.Student;
 import com.unil.element.Queue;
+import com.unil.element.Set;
 import com.unil.element.Stack;
 import com.unil.element.impl.*;
+
+import java.util.Random;
 
 import static java.lang.System.nanoTime;
 import static java.lang.System.out;
@@ -84,14 +87,16 @@ public class Main {
 //        double time4 = testStack(new LinkedListStack<>(), 100000);
 //        System.out.println("数组栈用时" + time3 + "ms");
 //        System.out.print("链表栈用时" + time4 + "ms");
-        BST<Integer> bst = new BST<>();
-        int[] data = {5,3,6,8,4,2};
-        for(int i = 0;i<data.length;i++){
-            bst.add(data[i]);
-        }
-        int e = 11;
-        boolean isContain = bst.contains(e);
-        System.out.print("二分搜索树中"+ (isContain?"":"不")+"包含"+e);
+
+//        BST<Integer> bst = new BST<>();
+//        int[] data = {5,3,6,8,4,2};
+//        for(int i = 0;i<data.length;i++){
+//            bst.add(data[i]);
+//        }
+//        int e = 11;
+//        boolean isContain = bst.contains(e);
+//        System.out.print("二分搜索树中"+ (isContain?"":"不")+"包含"+e);
+
 //        bst.preOrder();
 //        System.out.print("\n");
 //        bst.inOrder();
@@ -104,9 +109,26 @@ public class Main {
 //        System.out.print(bst.maximum());
 //        bst.removeMin();
 //        bst.removeMax();
-        bst.remove(8);
-        System.out.print(bst.toString());
+//        bst.remove(8);
+//        System.out.print(bst.toString());
 
+//        LinkedList<Integer> linkedList = new LinkedList<>();
+//        linkedList.addFirst(4);
+//        linkedList.addFirst(3);
+//        linkedList.addFirst(2);
+//        linkedList.addFirst(5);
+//        linkedList.addFirst(2);
+//        linkedList.removeElement(2);
+//        System.out.print(linkedList.toString());
+
+        BSTSet<Integer> bstSet = new BSTSet<>();
+        LinkedListSet<Integer> linkedListSet = new LinkedListSet<>();
+        int testNum = 20000;
+        Double bstTime = testSet(bstSet, testNum);
+        System.out.print("平衡二叉树Set时间"+bstTime+"毫秒");
+        System.out.print("\n");
+        Double linkedListTime = testSet(linkedListSet, testNum);
+        System.out.print("链表Set时间"+linkedListTime+"毫秒");
     }
 
     public static double testQueue(Queue<Integer> queue, int count) {
@@ -128,6 +150,16 @@ public class Main {
         }
         for (int i = 0; i < count; i++) {
             stack.pop();
+        }
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000;
+    }
+
+    public static double testSet(Set<Integer> set, int count) {
+        long startTime = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            set.add(random.nextInt(count/2));
         }
         long endTime = System.nanoTime();
         return (endTime - startTime) / 1000000;
