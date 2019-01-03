@@ -2,6 +2,7 @@ package com.unil;
 
 import com.unil.app.BracketCheck;
 import com.unil.app.Student;
+import com.unil.element.Map;
 import com.unil.element.Queue;
 import com.unil.element.Set;
 import com.unil.element.Stack;
@@ -125,18 +126,29 @@ public class Main {
 //        LinkedListSet<Integer> linkedListSet = new LinkedListSet<>();
 //        int testNum = 20000;
 //        Double bstTime = testSet(bstSet, testNum);
-//        System.out.print("平衡二叉树Set时间"+bstTime+"毫秒");
+//        System.out.print("二分搜索树Set时间"+bstTime+"毫秒");
 //        System.out.print("\n");
 //        Double linkedListTime = testSet(linkedListSet, testNum);
 //        System.out.print("链表Set时间"+linkedListTime+"毫秒");
-        System.out.println("hello");
-        LinkedListMap<String, String> linkedListMap = new LinkedListMap<>();
-        linkedListMap.add("d", "六");
-        linkedListMap.add("a", "百");
-        linkedListMap.add("v", "里");
-        linkedListMap.add("i", "加");
-        linkedListMap.add("d", "急");
-        System.out.println(linkedListMap.get("d"));
+
+//        System.out.println("hello");
+//        LinkedListMap<String, String> linkedListMap = new LinkedListMap<>();
+//        linkedListMap.add("d", "六");
+//        linkedListMap.add("a", "百");
+//        linkedListMap.add("v", "里");
+//        linkedListMap.add("i", "加");
+//        linkedListMap.add("d", "急");
+//        System.out.println(linkedListMap.get("d"));
+
+        BSTMap<Integer, Integer> bstMap = new BSTMap<>();
+        LinkedListMap<Integer, Integer> linkedListMap = new LinkedListMap<>();
+        int testNum = 20000;
+        Double bstTime = testMap(bstMap, testNum);
+        System.out.print("二分搜索树Map时间"+bstTime+"毫秒");
+        System.out.print("\n");
+        Double linkedListTime = testMap(linkedListMap, testNum);
+        System.out.print("链表Map时间"+linkedListTime+"毫秒");
+
     }
 
     public static double testQueue(Queue<Integer> queue, int count) {
@@ -168,6 +180,16 @@ public class Main {
         Random random = new Random();
         for (int i = 0; i < count; i++) {
             set.add(random.nextInt(count/2));
+        }
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000;
+    }
+
+    public static double testMap(Map<Integer, Integer> map, int count) {
+        long startTime = System.nanoTime();
+        Random random = new Random();
+        for (int i = 0; i < count; i++) {
+            map.add(random.nextInt(count/2), random.nextInt(count/2));
         }
         long endTime = System.nanoTime();
         return (endTime - startTime) / 1000000;
