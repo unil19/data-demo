@@ -120,15 +120,23 @@ public class Main {
 //        linkedList.addFirst(2);
 //        linkedList.removeElement(2);
 //        System.out.print(linkedList.toString());
-
-        BSTSet<Integer> bstSet = new BSTSet<>();
-        LinkedListSet<Integer> linkedListSet = new LinkedListSet<>();
-        int testNum = 20000;
-        Double bstTime = testSet(bstSet, testNum);
-        System.out.print("平衡二叉树Set时间"+bstTime+"毫秒");
-        System.out.print("\n");
-        Double linkedListTime = testSet(linkedListSet, testNum);
-        System.out.print("链表Set时间"+linkedListTime+"毫秒");
+        //集合测试
+//        BSTSet<Integer> bstSet = new BSTSet<>();
+//        LinkedListSet<Integer> linkedListSet = new LinkedListSet<>();
+//        int testNum = 20000;
+//        Double bstTime = testSet(bstSet, testNum);
+//        System.out.print("平衡二叉树Set时间"+bstTime+"毫秒");
+//        System.out.print("\n");
+//        Double linkedListTime = testSet(linkedListSet, testNum);
+//        System.out.print("链表Set时间"+linkedListTime+"毫秒");
+        System.out.println("hello");
+        LinkedListMap<String, String> linkedListMap = new LinkedListMap<>();
+        linkedListMap.add("d", "六");
+        linkedListMap.add("a", "百");
+        linkedListMap.add("v", "里");
+        linkedListMap.add("i", "加");
+        linkedListMap.add("d", "急");
+        System.out.println(linkedListMap.get("d"));
     }
 
     public static double testQueue(Queue<Integer> queue, int count) {

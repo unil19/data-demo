@@ -136,6 +136,7 @@ public class LinkedList<E> {
                 Node delNode = cur.next;
                 cur.next = delNode.next;
                 delNode.next = null;
+                size--;
             }
             cur = cur.next;
         }
