@@ -132,6 +132,14 @@ public class Array<T> {
         size++;
     }
 
+    public void swap(int i, int j){
+        if(i<0||i>=size||j<0||j>=size){
+            throw new IllegalArgumentException("交换的数组下标不合法");
+        }
+        T value = get(i);
+        data[i] = data[j];
+        data[j] = value;
+    }
     private void resize(int length){
         T[] newData = (T[]) new Object[length];
         for(int i=0; i<size;i++){
