@@ -20,6 +20,14 @@ public class Array<T> {
         size = 0;
     }
 
+    public Array(T[] arr) {
+        data = (T[]) new Object[arr.length];
+        for(int i=0;i<arr.length;i++){
+            data[i] = arr[i];
+        }
+        size = arr.length;
+    }
+
     public Array() {
         this(10);
     }

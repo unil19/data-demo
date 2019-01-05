@@ -140,14 +140,26 @@ public class Main {
 //        linkedListMap.add("d", "急");
 //        System.out.println(linkedListMap.get("d"));
 
-        BSTMap<Integer, Integer> bstMap = new BSTMap<>();
-        LinkedListMap<Integer, Integer> linkedListMap = new LinkedListMap<>();
-        int testNum = 20000;
-        Double bstTime = testMap(bstMap, testNum);
-        System.out.print("二分搜索树Map时间"+bstTime+"毫秒");
-        System.out.print("\n");
-        Double linkedListTime = testMap(linkedListMap, testNum);
-        System.out.print("链表Map时间"+linkedListTime+"毫秒");
+//        BSTMap<Integer, Integer> bstMap = new BSTMap<>();
+//        LinkedListMap<Integer, Integer> linkedListMap = new LinkedListMap<>();
+//        int testNum = 20000;
+//        Double bstTime = testMap(bstMap, testNum);
+//        System.out.print("二分搜索树Map时间"+bstTime+"毫秒");
+//        System.out.print("\n");
+//        Double linkedListTime = testMap(linkedListMap, testNum);
+//        System.out.print("链表Map时间"+linkedListTime+"毫秒");
+
+        int n = 100;
+        MaxHeap<Integer> maxHeap = new MaxHeap<>();
+        Random random = new Random();
+        for(int i =0; i<n;i++){
+            maxHeap.add(random.nextInt(10000));
+        }
+        Array<Integer> arr = new Array<>();
+        for(int i =0; i<n;i++){
+            arr.addLast(maxHeap.extractMax());
+        }
+        System.out.println(arr.toString());
 
     }
 
