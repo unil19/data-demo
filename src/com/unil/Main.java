@@ -2,10 +2,7 @@ package com.unil;
 
 import com.unil.app.BracketCheck;
 import com.unil.app.Student;
-import com.unil.element.Map;
-import com.unil.element.Queue;
-import com.unil.element.Set;
-import com.unil.element.Stack;
+import com.unil.element.*;
 import com.unil.element.impl.*;
 
 import java.util.Random;
@@ -149,17 +146,20 @@ public class Main {
 //        Double linkedListTime = testMap(linkedListMap, testNum);
 //        System.out.print("链表Map时间"+linkedListTime+"毫秒");
 
-        int n = 100;
-        MaxHeap<Integer> maxHeap = new MaxHeap<>();
-        Random random = new Random();
-        for(int i =0; i<n;i++){
-            maxHeap.add(random.nextInt(10000));
-        }
-        Array<Integer> arr = new Array<>();
-        for(int i =0; i<n;i++){
-            arr.addLast(maxHeap.extractMax());
-        }
-        System.out.println(arr.toString());
+//        int n = 100;
+//        MaxHeap<Integer> maxHeap = new MaxHeap<>();
+//        Random random = new Random();
+//        for(int i =0; i<n;i++){
+//            maxHeap.add(random.nextInt(10000));
+//        }
+//        Array<Integer> arr = new Array<>();
+//        for(int i =0; i<n;i++){
+//            arr.addLast(maxHeap.extractMax());
+//        }
+//        System.out.println(arr.toString());
+        Integer[] arr = {0,1,2,3,4,5,6,7,8,9};
+        SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (a, b)-> a+b);
+        System.out.println(segmentTree.toString());
 
     }
 
