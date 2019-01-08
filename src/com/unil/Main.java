@@ -159,6 +159,7 @@ public class Main {
 //        System.out.println(arr.toString());
         Integer[] arr = {0,1,2,3,4,5,6,7,8,9};
         SegmentTree<Integer> segmentTree = new SegmentTree<>(arr, (a, b)-> a+b);
+        segmentTree.set(0, 10);
         System.out.println(segmentTree.toString());
 
     }
