@@ -162,6 +162,12 @@ public class Main {
         segmentTree.set(0, 10);
         System.out.println(segmentTree.toString());
 
+        Trie trie = new Trie();
+        trie.add("hello");
+        trie.add("world");
+        System.out.println(trie.getSize());
+        System.out.println(trie.contains("hi"));
+        System.out.println(trie.contains("hell."));
     }
 
     public static double testQueue(Queue<Integer> queue, int count) {
